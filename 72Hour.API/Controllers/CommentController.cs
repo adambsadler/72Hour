@@ -46,5 +46,18 @@ namespace _72Hour.API.Controllers
             var comment = commentService.GetCommentById(id);
             return Ok(comment);
         }
+
+        public IHttpActionResult Put(CommentEdit comment)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var service = CreateCommentService();
+
+            if (!service.UpdateComment(comment))
+                return InternalServerError();
+
+            return Ok();
+        }
     }
 }
