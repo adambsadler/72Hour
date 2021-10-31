@@ -1,6 +1,7 @@
 ﻿using _72Hours.Data;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,7 @@ namespace _72Hours.Models
 
         public virtual ICollection<Reply> Replies { get; set; }
 
-        //public virtual int PostId { get; set; }
+        [ForeignKey("Post")]
+        public virtual int PostId { get; set; }
     }
 }
