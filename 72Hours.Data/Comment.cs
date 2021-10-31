@@ -12,12 +12,16 @@ namespace _72Hours.Data
     {
         [Key]
         public int CommentId { get; set; }
+
         [Required]
         public string Text { get; set; }
+
         [Required]
         public Guid AuthorId { get; set; }
+
         public virtual ICollection<Reply> Replies { get; set; }
-        [ForeignKey("Post")]
-        public virtual int PostId { get; set; }
+
+        //[ForeignKey("Post")]
+        //public virtual int PostId { get; set; }
     }
 }

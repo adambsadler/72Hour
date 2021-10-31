@@ -12,10 +12,13 @@ namespace _72Hours.Data
     {
         [Key]
         public int Id { get; set; }
-        [ForeignKey("Comment")]
-        public virtual int CommentId { get; set; }
+        
+        //[ForeignKey("Comment")]
+        //public virtual int CommentId { get; set; }
+
         [Required]
         public string Text { get; set; }
+
         [Required]
         public Guid AuthorId { get; set; }
     }
