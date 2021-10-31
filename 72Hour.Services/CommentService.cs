@@ -24,7 +24,7 @@ namespace _72Hour.Services
                 new Comment()
                 {
                     Text = model.Text,
-                    AuthorId = _authorId,
+                    AuthorId = _authorId
                 };
 
             using (var ctx = new ApplicationDbContext())
