@@ -54,11 +54,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommentCreate.cs" />
-    <Compile Include="CommentDetail.cs" />
-    <Compile Include="CommentEdit.cs" />
-    <Compile Include="CommentListItem.cs" />
+    <Compile Include="Comment\CommentCreate.cs" />
+    <Compile Include="Comment\CommentDetail.cs" />
+    <Compile Include="Comment\CommentEdit.cs" />
+    <Compile Include="Comment\CommentListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reply\ReplyCreate.cs" />
+    <Compile Include="Reply\ReplyDetail.cs" />
+    <Compile Include="Reply\ReplyListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
