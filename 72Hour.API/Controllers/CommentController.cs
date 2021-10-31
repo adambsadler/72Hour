@@ -39,5 +39,12 @@ namespace _72Hour.API.Controllers
             var commentService = new CommentService(userId);
             return commentService;
         }
+
+        public IHttpActionResult Get(int id)
+        {
+            CommentService commentService = CreateCommentService();
+            var comment = commentService.GetCommentById(id);
+            return Ok(comment);
+        }
     }
 }
