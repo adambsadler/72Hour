@@ -53,5 +53,20 @@ namespace _72Hour.Services
                 return query.ToArray();
             }
         }
+
+        public bool UpdateComment(CommentEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Comments
+                        .Single(e => e.CommentId == model.CommentId && e.AuthorId == _authorId);
+
+                entity.Text = model.Text;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
