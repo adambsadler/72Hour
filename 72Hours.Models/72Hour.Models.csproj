@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommentCreate.cs" />
+    <Compile Include="CommentDetail.cs" />
     <Compile Include="CommentListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

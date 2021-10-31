@@ -53,5 +53,22 @@ namespace _72Hour.Services
                 return query.ToArray();
             }
         }
+        public CommentDetail GetCommentById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Comments
+                        .Single(e => e.CommentId == id && e.AuthorId == _authorId);
+                return
+                    new CommentDetail
+                    {
+                        CommentId = entity.CommentId,
+                        Text = entity.Text
+                    };
+
+            }
+        }
     }
 }
