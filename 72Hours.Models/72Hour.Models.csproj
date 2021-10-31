@@ -58,6 +58,10 @@
     <Compile Include="Comment\CommentDetail.cs" />
     <Compile Include="Comment\CommentEdit.cs" />
     <Compile Include="Comment\CommentListItem.cs" />
+    <Compile Include="Post\PostCreate.cs" />
+    <Compile Include="Post\PostDetail.cs" />
+    <Compile Include="Post\PostEdit.cs" />
+    <Compile Include="Post\PostListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reply\ReplyCreate.cs" />
     <Compile Include="Reply\ReplyDetail.cs" />

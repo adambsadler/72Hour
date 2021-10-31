@@ -21,7 +21,7 @@ namespace _72Hours.Data
 
         public virtual ICollection<Reply> Replies { get; set; }
 
-        //[ForeignKey("Post")]
-        //public virtual int PostId { get; set; }
+        [ForeignKey("Post")]
+        public virtual int PostId { get; set; }
     }
 }
