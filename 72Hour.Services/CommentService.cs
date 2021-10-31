@@ -85,5 +85,20 @@ namespace _72Hour.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        public bool DeleteComment(int commentId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Comments
+                        .Single(e => e.CommentId == commentId && e.AuthorId == _authorId);
+
+                ctx.Comments.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
