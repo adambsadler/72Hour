@@ -92,5 +92,15 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\72Hour.Services\72Hour.Services.csproj">
+      <Project>{47b6006b-93ae-43df-8e63-801e1db89aec}</Project>
+      <Name>72Hour.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\72Hours.Models\72Hour.Models.csproj">
+      <Project>{677641b0-a9a9-402e-ad6b-d0c91a4ea193}</Project>
+      <Name>72Hour.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
