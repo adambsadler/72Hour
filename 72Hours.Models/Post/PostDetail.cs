@@ -14,5 +14,6 @@ namespace _72Hours.Models.Post
         public string Text { get; set; }
         public Guid AuthorId { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
+        public int CommentCount { get; set; }
     }
 }
