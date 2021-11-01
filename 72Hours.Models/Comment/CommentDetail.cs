@@ -16,8 +16,6 @@ namespace _72Hours.Models
 
         public Guid AuthorId { get; set; }
 
-        public virtual ICollection<Reply> Replies { get; set; }
-
         [ForeignKey("Post")]
         public virtual int PostId { get; set; }
         public int ReplyCount { get; set; }

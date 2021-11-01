@@ -1,5 +1,6 @@
 ﻿using _72Hour.Services;
 using _72Hours.Models;
+using _72Hours.Models.Reply;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -39,6 +40,19 @@ namespace _72Hour.API.Controllers
             var userId = Guid.Parse(User.Identity.GetUserId());
             var replyService = new ReplyService(userId);
             return replyService;
+        }
+
+        public IHttpActionResult Put(ReplyEdit reply)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var service = CreateReplyService();
+
+            if (!service.UpdateReply(reply))
+                return InternalServerError();
+
+            return Ok();
         }
     }
 }
