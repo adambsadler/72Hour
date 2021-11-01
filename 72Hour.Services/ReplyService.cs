@@ -1,6 +1,7 @@
 ﻿using _72Hour.Data;
 using _72Hours.Data;
 using _72Hours.Models;
+using _72Hours.Models.Reply;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -83,6 +84,21 @@ namespace _72Hour.Services
                         Text = entity.Text,
                         CommentId = entity.CommentId
                     };
+            }
+        }
+
+        public bool UpdateReply(ReplyEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Replies
+                        .Single(e => e.Id == model.Id && e.AuthorId == _authorId);
+
+                entity.Text = model.Text;
+
+                return ctx.SaveChanges() == 1;
             }
         }
     }
