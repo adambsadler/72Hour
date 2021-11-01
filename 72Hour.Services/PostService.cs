@@ -49,7 +49,8 @@ namespace _72Hour.Services
                                 {
                                     Id = e.Id,
                                     Title = e.Title,
-                                    Text = e.Text
+                                    Text = e.Text,
+                                    CommentCount = e.Comments.Count
                                 });
 
                 return query.ToArray();
@@ -69,7 +70,8 @@ namespace _72Hour.Services
                     {
                         Id = entity.Id,
                         Title = entity.Title,
-                        Text = entity.Text
+                        Text = entity.Text,
+                        CommentCount = entity.Comments.Count
                     };
             }
         }

@@ -32,6 +32,8 @@ namespace _72Hour.Services
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.Comments.Add(entity);
+                var foundPost = ctx.Posts.Single(p => p.Id == entity.PostId);
+                foundPost.Comments.Add((Comment)entity);
                 return ctx.SaveChanges() == 1;
             }
         }
@@ -70,7 +72,9 @@ namespace _72Hour.Services
                     new CommentDetail
                     {
                         CommentId = entity.CommentId,
-                        Text = entity.Text
+                        Text = entity.Text,
+                        PostId = entity.PostId,
+                        ReplyCount = entity.Replies.Count
                     };
           }
         }

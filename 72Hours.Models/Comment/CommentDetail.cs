@@ -20,5 +20,6 @@ namespace _72Hours.Models
 
         [ForeignKey("Post")]
         public virtual int PostId { get; set; }
+        public int ReplyCount { get; set; }
     }
 }
