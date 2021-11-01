@@ -4,6 +4,7 @@ using _72Hours.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -24,7 +25,8 @@ namespace _72Hour.Services
                 new Comment()
                 {
                     Text = model.Text,
-                    AuthorId = _authorId
+                    AuthorId = _authorId,
+                    PostId = model.PostId
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -47,7 +49,9 @@ namespace _72Hour.Services
                                 new CommentListItem
                                 {
                                     CommentId = e.CommentId,
-                                    Text = e.Text
+                                    Text = e.Text,
+                                    PostId = e.PostId,
+                                    ReplyCount = e.Replies.Count
                                 });
 
                 return query.ToArray();

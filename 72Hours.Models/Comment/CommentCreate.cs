@@ -11,5 +11,8 @@ namespace _72Hours.Models
     {
         [Required]
         public string Text { get; set; }
+
+        [Required]
+        public int PostId { get; set; }
     }
 }
