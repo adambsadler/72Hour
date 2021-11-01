@@ -31,7 +31,19 @@ namespace _72Hour.Services
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.Replies.Add(entity);
+                var foundComment = ctx.Comments.Single(c => c.CommentId == entity.CommentId);
+                foundComment.Replies.Add((Reply)entity);
                 return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public void AddReplyToComment(Reply reply, int commentID)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var foundComment = ctx.Comments.Single(c => c.CommentId == commentID);
+                foundComment.Replies.Add(reply);
+                var testing = ctx.SaveChanges();
             }
         }
 

@@ -29,6 +29,8 @@ namespace _72Hour.API.Controllers
             if (!service.CreateReply(reply))
                 return InternalServerError();
 
+            // Need to add this reply to Comment.Replies
+
             return Ok();
         }
 
