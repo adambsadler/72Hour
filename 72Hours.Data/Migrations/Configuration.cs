@@ -10,7 +10,6 @@ namespace _72Hours.Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "_72Hour.Data.ApplicationDbContext";
         }
 
         protected override void Seed(_72Hour.Data.ApplicationDbContext context)

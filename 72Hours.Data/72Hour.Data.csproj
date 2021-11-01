@@ -86,13 +86,9 @@
   <ItemGroup>
     <Compile Include="Comment.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202110311653596_InitialCreate.cs" />
-    <Compile Include="Migrations\202110311653596_InitialCreate.Designer.cs">
-      <DependentUpon>202110311653596_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110312036304_InitialMigration.cs" />
-    <Compile Include="Migrations\202110312036304_InitialMigration.Designer.cs">
-      <DependentUpon>202110312036304_InitialMigration.cs</DependentUpon>
+    <Compile Include="Migrations\202111012056285_fix.cs" />
+    <Compile Include="Migrations\202111012056285_fix.Designer.cs">
+      <DependentUpon>202111012056285_fix.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
@@ -104,11 +100,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202110311653596_InitialCreate.resx">
-      <DependentUpon>202110311653596_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110312036304_InitialMigration.resx">
-      <DependentUpon>202110312036304_InitialMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202111012056285_fix.resx">
+      <DependentUpon>202111012056285_fix.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

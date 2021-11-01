@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _72Hours.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,5 +11,8 @@ namespace _72Hours.Models
     {
         public int CommentId { get; set; }
         public string Text { get; set; }
+        public int ReplyCount { get; set; }
+        public int PostId { get; set; }
+
     }
 }

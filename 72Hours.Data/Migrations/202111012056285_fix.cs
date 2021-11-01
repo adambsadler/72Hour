@@ -3,7 +3,7 @@ namespace _72Hours.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class fix : DbMigration
     {
         public override void Up()
         {
@@ -14,24 +14,11 @@ namespace _72Hours.Data.Migrations
                         CommentId = c.Int(nullable: false, identity: true),
                         Text = c.String(nullable: false),
                         AuthorId = c.Guid(nullable: false),
-                        Post_Id = c.Int(),
+                        PostId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.CommentId)
-                .ForeignKey("dbo.Post", t => t.Post_Id)
-                .Index(t => t.Post_Id);
-            
-            CreateTable(
-                "dbo.Reply",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Text = c.String(nullable: false),
-                        AuthorId = c.Guid(nullable: false),
-                        Comment_CommentId = c.Int(),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Comment", t => t.Comment_CommentId)
-                .Index(t => t.Comment_CommentId);
+                .ForeignKey("dbo.Post", t => t.PostId, cascadeDelete: true)
+                .Index(t => t.PostId);
             
             CreateTable(
                 "dbo.Post",
@@ -43,6 +30,19 @@ namespace _72Hours.Data.Migrations
                         AuthorId = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.Reply",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        CommentId = c.Int(nullable: false),
+                        Text = c.String(nullable: false),
+                        AuthorId = c.Guid(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Comment", t => t.CommentId, cascadeDelete: true)
+                .Index(t => t.CommentId);
             
             CreateTable(
                 "dbo.IdentityRole",
@@ -122,21 +122,21 @@ namespace _72Hours.Data.Migrations
             DropForeignKey("dbo.IdentityUserLogin", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserClaim", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserRole", "IdentityRole_Id", "dbo.IdentityRole");
-            DropForeignKey("dbo.Comment", "Post_Id", "dbo.Post");
-            DropForeignKey("dbo.Reply", "Comment_CommentId", "dbo.Comment");
+            DropForeignKey("dbo.Reply", "CommentId", "dbo.Comment");
+            DropForeignKey("dbo.Comment", "PostId", "dbo.Post");
             DropIndex("dbo.IdentityUserLogin", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserClaim", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "IdentityRole_Id" });
-            DropIndex("dbo.Reply", new[] { "Comment_CommentId" });
-            DropIndex("dbo.Comment", new[] { "Post_Id" });
+            DropIndex("dbo.Reply", new[] { "CommentId" });
+            DropIndex("dbo.Comment", new[] { "PostId" });
             DropTable("dbo.IdentityUserLogin");
             DropTable("dbo.IdentityUserClaim");
             DropTable("dbo.ApplicationUser");
             DropTable("dbo.IdentityUserRole");
             DropTable("dbo.IdentityRole");
-            DropTable("dbo.Post");
             DropTable("dbo.Reply");
+            DropTable("dbo.Post");
             DropTable("dbo.Comment");
         }
     }
