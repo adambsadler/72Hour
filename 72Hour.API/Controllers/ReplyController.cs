@@ -54,5 +54,15 @@ namespace _72Hour.API.Controllers
 
             return Ok();
         }
+
+        public IHttpActionResult Delete(int id)
+        {
+            var service = CreateReplyService();
+
+            if (!service.DeleteReply(id))
+                return InternalServerError();
+
+            return Ok();
+        }
     }
 }

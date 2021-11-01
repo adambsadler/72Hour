@@ -101,5 +101,20 @@ namespace _72Hour.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        public bool DeleteReply(int replyId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Replies
+                        .Single(e => e.Id == replyId && e.AuthorId == _authorId);
+
+                ctx.Replies.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
